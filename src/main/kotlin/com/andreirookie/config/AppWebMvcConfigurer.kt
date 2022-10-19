@@ -15,7 +15,7 @@ class AppWebMvcConfigurer : WebMvcConfigurer {
         registry.addInterceptor(object : HandlerInterceptor {
             override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
                 if (request.requestURI.startsWith("/api/slow")) {
-                    Thread.sleep(5000)
+                    Thread.sleep(3000)
                 }
                 return true
             }
