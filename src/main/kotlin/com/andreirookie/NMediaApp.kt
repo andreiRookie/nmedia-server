@@ -23,6 +23,11 @@ class NMediaApp {
                     published = 0,
                     likedByMe = false,
                     likes = 0,
+                    attachment = Attachment(
+                        url = "netology.jpg",
+                        description = null,
+                        type = AttachmentType.IMAGE
+                    )
                 )
             )
             save(
