@@ -24,7 +24,7 @@ class NMediaApp {
                     likedByMe = false,
                     likes = 0,
                     attachment = Attachment(
-                        url = "netology.jpg",
+                        url = "netologyImage.jpg",
                         description = null,
                         type = AttachmentType.IMAGE
                     )
