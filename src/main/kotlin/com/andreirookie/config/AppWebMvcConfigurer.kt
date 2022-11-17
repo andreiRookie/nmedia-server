@@ -6,6 +6,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
+import com.andreirookie.exception.InternalServerError
+
 
 
 @Configuration
@@ -19,6 +21,15 @@ class AppWebMvcConfigurer : WebMvcConfigurer {
                         request.requestURI.startsWith("/images"))
                 {
                     Thread.sleep(3000)
+                }
+                return true
+            }
+        })
+        // error emulation
+        registry.addInterceptor(object : HandlerInterceptor {
+            override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
+                if (Math.random() > 0.5) {
+                    throw InternalServerError()
                 }
                 return true
             }
